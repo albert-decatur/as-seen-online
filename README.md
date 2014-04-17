@@ -1,4 +1,6 @@
 as-seen-online
 ==============
 
-great scripts by great people
+Great scripts by great people.
+
+I did not write these but their authors made them available online.

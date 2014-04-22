@@ -4,10 +4,10 @@ as-seen-online
 Great scripts by great people.
 
 
-script | creator | license | source
---- | --- | --- | ---
-cleanGeometry.sql | Horst Duester | GPL | http://www.sogis1.so.ch/sogis/dl/postgis/cleanGeometry.sql
-csvquote.awk | Dan Brown | MIT | https://github.com/dbro/csvquote
-hash_diff.pl | Miller | public domain | http://stackoverflow.com/questions/22362728/generating-a-unordered-list-hash-from-a-array
-levenshtein.py | Martin Schimmels | MIT | http://code.activestate.com/recipes/576874-levenshtein-distance/
-ogr2poly.py | Josh Doe | LGPL | http://svn.openstreetmap.org/applications/utils/osm-extract/polygons/ogr2poly.py
+script | purpose | creator | license | source
+--- | --- | --- | --- | ---
+cleanGeometry.sql | repair postgis geom | Horst Duester | GPL | http://www.sogis1.so.ch/sogis/dl/postgis/cleanGeometry.sql
+csvquote.awk | remove colliding delimiters in CSV | Dan Brown | MIT | https://github.com/dbro/csvquote
+hash_diff.pl | compare unordered lists | Miller | public domain | http://stackoverflow.com/questions/22362728/generating-a-unordered-list-hash-from-a-array
+levenshtein.py |  get levenshtein distance of two strings | Martin Schimmels | MIT | http://code.activestate.com/recipes/576874-levenshtein-distance/
+ogr2poly.py | make .poly file to extract from OSM | Josh Doe | LGPL | http://svn.openstreetmap.org/applications/utils/osm-extract/polygons/ogr2poly.py

@@ -14,3 +14,4 @@ ogr2poly.py | make .poly file to extract from OSM | Josh Doe | LGPL | http://svn
 build_xml_tree.sh | make a diagram of an XML file | William J Turkel | unknown | http://williamjturkel.net/2013/09/16/simple-xml-parsing-and-graph-visualization-with-command-line-tools-in-linux/
 add_tsv_matrices.sh | add two TSV matrices with awk | Jadu Saikia | unknown | http://www.unixcl.com/2008/09/matrix-addition-using-awk-in-bash.html
 mbox2maildir.pl | convert mbox file to maildir format | Ivan Kohler | unknown | http://linux.alanstudio.hk/mbox2maildir
+mailman2mbox.pl | convert GNU Mailman's gzipped text files to mbox | Lars Magne Ingebrigtsen | unknown | http://www.mail-archive.com/gossip@mail-archive.com/msg01219.html

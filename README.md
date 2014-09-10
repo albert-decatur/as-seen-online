@@ -15,3 +15,5 @@ build_xml_tree.sh | make a diagram of an XML file | William J Turkel | unknown |
 add_tsv_matrices.sh | add two TSV matrices with awk | Jadu Saikia | unknown | http://www.unixcl.com/2008/09/matrix-addition-using-awk-in-bash.html
 mbox2maildir.pl | convert mbox file to maildir format | Ivan Kohler | unknown | http://linux.alanstudio.hk/mbox2maildir
 mailman2mbox.pl | convert GNU Mailman's gzipped text files to mbox | Lars Magne Ingebrigtsen | unknown | http://www.mail-archive.com/gossip@mail-archive.com/msg01219.html
+permute.awk|make every permutation of a string given an input file line by line|ghostdog74|unknown|http://stackoverflow.com/questions/3846123/generating-permutations-using-bash
+listpairs.sh|list every two pair permutation from a list |jw013|unknown| http://superuser.com/questions/318067/how-to-iterate-over-all-pair-combinations-in-a-list-in-bash

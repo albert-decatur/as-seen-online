@@ -1,24 +1,28 @@
--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
--- 
--- $Id: cleanGeometry.sql 2008-04-24 10:30Z Dr. Horst Duester $
 --
--- cleanGeometry - remove self- and ring-selfintersections from 
---                 input Polygon geometries 
--- http://www.kappasys.ch
--- Copyright 2008 Dr. Horst Duester
--- Version 1.0
--- contact: horst dot duester at kappasys dot ch
+-- An updated cleanGeometry(), by Tim Sutton
+-- Original found here: http://linfiniti.com/2010/07/cleaning-geometries-inside-postgis/
 --
--- This is free software; you can redistribute and/or modify it under
--- the terms of the GNU General Public Licence. See the COPYING file.
--- This software is without any warrenty and you use it at your own risk
---  
--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+--
+-- PostgreSQL database dump
+--
 
-CREATE OR REPLACE FUNCTION cleanGeometry(geometry)
-  RETURNS geometry AS
-$BODY$DECLARE
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+SET search_path = public, pg_catalog;
+
+--
+-- Name: cleangeometry(geometry); Type: FUNCTION; Schema: public; Owner: sean
+--
+
+CREATE FUNCTION cleangeometry(geometry) RETURNS geometry
+    LANGUAGE plpgsql
+    AS $_$DECLARE
   inGeom ALIAS for $1;
   outGeom geometry;
   tmpLinestring geometry;
@@ -32,12 +36,12 @@ Begin
 
 -- Only process if geometry is not valid, 
 -- otherwise put out without change
-    if not isValid(inGeom) THEN
+    if not st_isValid(inGeom) THEN
     
 -- create nodes at all self-intersecting lines by union the polygon boundaries
 -- with the startingpoint of the boundary.  
-      tmpLinestring := st_union(st_multi(st_boundary(inGeom)),st_pointn(boundary(inGeom),1));
-      outGeom = buildarea(tmpLinestring);      
+      tmpLinestring := st_union(st_multi(st_boundary(inGeom)),st_pointn(st_boundary(inGeom),1));
+      outGeom = st_buildarea(tmpLinestring);      
       IF (GeometryType(inGeom) = 'MULTIPOLYGON') THEN      
         RETURN st_multi(outGeom);
       ELSE
@@ -65,5 +69,12 @@ Begin
     RAISE NOTICE 'The input type % is not supported',GeometryType(inGeom);
     RETURN inGeom;
   END IF;	  
-End;$BODY$
-  LANGUAGE 'plpgsql' VOLATILE;
+End;$_$;
+
+
+ALTER FUNCTION public.cleangeometry(geometry) OWNER TO sean;
+
+--
+-- PostgreSQL database dump complete
+--
+
